@@ -1,0 +1,47 @@
+﻿<Application x:Class="movieRateGuess.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:movieRateGuess"
+             xmlns:vm="clr-namespace:movieRateGuess.viewModel"
+             xmlns:view="clr-namespace:movieRateGuess.views"
+             xmlns:el="clr-namespace:movieRateGuess.views.elements"
+             xmlns:cnvtr="clr-namespace:movieRateGuess.utilities.converters">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/utilities/styles/s_button.xaml"/>
+                <ResourceDictionary Source="/utilities/styles/s_border.xaml"/>
+                <ResourceDictionary Source="/utilities/styles/s_textblock.xaml"/>
+
+                <ResourceDictionary Source="/utilities/icons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <cnvtr:BoolToVisibilityConverter x:Key="boolToVisibilityConventer"/>
+            <cnvtr:BoolToVisibilityReverseConverter x:Key="BoolToVisibilityReverseConverter"/>
+            <cnvtr:enumGameStateConverter x:Key="enumGameStateConverter"/>
+
+
+            <DataTemplate DataType="{x:Type vm:vm_menu}">
+                <view:v_menu/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:vm_gameModeCard}">
+                <el:v_gameModeCard/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:vm_gameModeFriendCard}">
+                <el:v_gameModeFriendCard/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:vm_game}">
+                <view:v_game/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:vm_results}">
+                <view:v_results/>
+            </DataTemplate>
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

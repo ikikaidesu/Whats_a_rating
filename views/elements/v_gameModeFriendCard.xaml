@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="movieRateGuess.views.elements.v_gameModeFriendCard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:movieRateGuess.views.elements"
+             xmlns:uc="clr-namespace:movieRateGuess.views.elements"
+             mc:Ignorable="d" 
+             Height="587" Width="385">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Border Grid.Row="0"
+                        CornerRadius="10,10,0,0">
+                    <Border.Background>
+                        <ImageBrush ImageSource="pack://application:,,,/movieRateGuess;component/resources/images/card 2.png"
+                    Stretch="UniformToFill"/>
+                    </Border.Background>
+                </Border>
+                <Border Grid.Row="0"
+                       CornerRadius="10,10,0,0"
+                       Background="Black"
+                       Opacity="0.75">
+                </Border>
+                <TextBlock Text="Фильмы&#10;друга" 
+                           Foreground="White"
+                           FontSize="36"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"/>
+            </Grid>
+
+            <uc:v_kpLinkInput Grid.Row="1"
+                              goToFriendModeCommand="{Binding goToFriendModeCommand}"/>
+        </Grid>
+
+        <uc:v_popUpOnMouseEnter Grid.Row="1" 
+                                Margin="0,25,0,0"
+                                ToolTipText="{Binding PopUpText}"
+                                ToolTipWidth="{Binding PopUpWidth}"
+                                ToolTipHeight="{Binding PopUpHeight}"
+                                ToolTipHorizontalOffset="{Binding PopUpHorizontalOffset}"
+                                ToolTipVerticalOffset="{Binding PopUpVerticalOffset}"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,414 @@
+﻿<UserControl x:Class="movieRateGuess.views.v_game"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:movieRateGuess.views"
+             xmlns:enums="clr-namespace:movieRateGuess.utilities.enums"
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             mc:Ignorable="d" 
+             MinHeight="1080" MinWidth="1920">
+    <Grid>
+        <Grid Visibility="{Binding isLoading, 
+                           Converter={StaticResource boolToVisibilityConventer}}"
+              d:Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Orientation="Vertical">
+                <Image gif:ImageBehavior.AnimatedSource="/resources/images/rigby-cat-cat.gif"
+                       Width="250"
+                       Height="250"
+                       Stretch="Uniform"/>
+                <TextBlock Text="Подгружаем данные..."
+                           Foreground="White"
+                           FontSize="24"
+                           Margin="0,15,0,0"/>
+            </StackPanel>
+            
+        </Grid>
+        <Grid Visibility="{Binding isLoading, 
+                           Converter={StaticResource BoolToVisibilityReverseConverter}}"
+              d:Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- верхняя часть где титульник и кнопка назад -->
+            <Grid Grid.Row="0">
+                <Grid HorizontalAlignment="Left" 
+          VerticalAlignment="Top"
+          Margin="10,10,0,0"
+          Grid.Row="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource button_transparent}"
+                        Command="{Binding goBackToMenuCommand}">
+                            <Border Width="48"
+                            Height="48"
+                            CornerRadius="50"
+                            Padding="10"
+                            Background="#22201E">
+                                <Path Data="{StaticResource iconBack}"
+                              Name="questionIcon"
+                              Fill="White"
+                              Stroke="White"
+                              StrokeThickness="1.5"
+                              Stretch="Uniform"/>
+                            </Border>
+                        </Button>
+
+                        <TextBlock Text="{Binding guessedMovieCount, StringFormat=Угадано: {0}}"
+                           d:Text="Угадано: 0"
+                           VerticalAlignment="Center"
+                           Margin="35,0,0,0"
+                           Foreground="White"
+                           FontSize="16"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Margin="0,10,0,0">
+                    <TextBlock d:Text="Какая же оценка этого фильма?">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="white"/>
+                                <Setter Property="FontSize" Value="48"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="TextAlignment" Value="Center"/>
+
+                                <Style.Triggers>
+
+                                    <!-- соло рандом режим-->
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding currentGameMode}" 
+                                               Value="{x:Static enums:enum_gameModes.random}"/>
+                                            <Condition Binding="{Binding gameState}" 
+                                               Value="{x:Static enums:enum_gameState.playing}"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Text" 
+                                        Value="Какая же оценка этого фильма?"/>
+                                    </MultiDataTrigger>
+
+                                    <!-- режим друг -->
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding currentGameMode}" 
+                                               Value="{x:Static enums:enum_gameModes.friend}"/>
+                                            <Condition Binding="{Binding gameState}" 
+                                               Value="{x:Static enums:enum_gameState.playing}"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Text"
+                                        Value="{Binding friendId, StringFormat=Какая же оценка этого фильма у {0}?}"/>
+                                    </MultiDataTrigger>
+
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding gameState}" 
+                                               Value="{x:Static enums:enum_gameState.win}"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Text" 
+                                        Value="Угадали! Отличная работа."/>
+                                    </MultiDataTrigger>
+
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding gameState}" 
+                                               Value="{x:Static enums:enum_gameState.defeat}"/>
+                                        </MultiDataTrigger.Conditions>
+                                        <Setter Property="Text" 
+                                        Value="К сожалению вы не угадали (╥_╥) &#x0a;В следующий раз обязательно получится!"/>
+                                    </MultiDataTrigger>
+
+                                </Style.Triggers>
+
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </Grid>
+
+            <!-- основной блок, который делится на 3 мини блока для контента-->
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- карточка -->
+                <Border Grid.Row="0"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    Background="#22201E"
+                    Padding="25"
+                    HorizontalAlignment="Center"
+                    Margin="0,50,0,0"
+                    Height="auto"
+                    Width="1500"
+                    DataContext="{Binding currentMovie}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- постер фильма -->
+                        <Image Source="{Binding posterUrl}"
+                           Height="450"
+                           Width="auto"
+                           VerticalAlignment="Top"
+                           d:Source="/resources/images/poster.png"
+                           Stretch="Fill"
+                           Grid.Column="0"/>
+
+                        <Grid Grid.Column="1"
+              Margin="15,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- левая часть информации-->
+                                <Grid Grid.Column="0">
+                                    <StackPanel Orientation="Vertical">
+
+                                        <!-- название -->
+                                        <TextBlock Text="{Binding name}" 
+                                   d:Text="Обитель зла" 
+                                   Foreground="White"
+                                   FontSize="32"/>
+
+                                        <!-- на англ название -->
+                                        <TextBlock Text="{Binding englishName}"
+                                   d:Text="Resident evil" 
+                                   Foreground="Gray"
+                                   FontSize="24"
+                                   Margin="0,5,0,0"/>
+
+                                        <!-- год выхода, возрастная категория, длительность -->
+                                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,5,0,0">
+                                            <TextBlock Text="{Binding year}"
+                                       d:Text="2026" 
+                                       Foreground="White"
+                                       FontSize="24"/>
+                                            <TextBlock Text="{Binding age}"
+                                       d:Text="18+" 
+                                       Foreground="White"
+                                       FontSize="24"
+                                       Margin="35,0,0,0"/>
+                                            <TextBlock Text="{Binding length}"
+                                       d:Text="1 ч 34 мин" 
+                                       Foreground="White"
+                                       FontSize="24"
+                                       Margin="35,0,0,0"/>
+                                        </StackPanel>
+
+                                        <!-- блок информации -->
+                                        <Grid Width="800"
+                              HorizontalAlignment="Left"
+                              Margin="0,20,0,0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <!-- левая часть -->
+                                            <TextBlock Grid.Row="0"
+                                       Grid.Column="0"
+                                       Text="Жанр:"
+                                       Foreground="Gray"
+                                       FontSize="24"/>
+
+                                            <TextBlock Grid.Row="1" 
+                                       Grid.Column="0"
+                                       Text="Режиссер:"
+                                       Foreground="Gray"
+                                       FontSize="24"/>
+
+                                            <TextBlock Grid.Row="2" 
+                                       Grid.Column="0"
+                                       Text="Сборы:"
+                                       Foreground="Gray"
+                                       FontSize="24"/>
+
+                                            <!-- правая часть -->
+                                            <ListView Grid.Row="0"
+                                                  Grid.Column="1"
+                                                  ItemsSource="{Binding genres}"
+                                                  d:ItemsSource="{d:SampleData ItemCount=3}"
+                                                  Background="Transparent"
+                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                  BorderThickness="0"
+                                                  IsHitTestVisible="False">
+                                                <ListView.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Horizontal"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListView.ItemsPanel>
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding}"
+                                                   d:Text="ужасы"
+                                                   Foreground="White"
+                                                   FontSize="24"
+                                                    Margin="0,0,5,0"/>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+
+                                            <ListView Grid.Row="1"
+                                                  Grid.Column="1"
+                                                  ItemsSource="{Binding directors}"
+                                                  d:ItemsSource="{d:SampleData ItemCount=3}"
+                                                  Background="Transparent"
+                                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                                  BorderThickness="0"
+                                                  IsHitTestVisible="False">
+                                                <ListView.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <WrapPanel Orientation="Horizontal"/>
+                                                    </ItemsPanelTemplate>
+                                                </ListView.ItemsPanel>
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding}"
+                                                   d:Text="Зак креггер"
+                                                   Foreground="White"
+                                                   FontSize="24"
+                                                    Margin="0,0,10,0"/>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+
+                                            <TextBlock Grid.Row="2" 
+                                       Grid.Column="1"
+                                       Text="{Binding earnings, StringFormat={}{0}$}"
+                                       d:Text="384 823 318$"
+                                       Foreground="White"
+                                       FontSize="24"/>
+                                        </Grid>
+                                    </StackPanel>
+                                </Grid>
+
+                                <!-- оценка-->
+                                <StackPanel Grid.Column="1"
+                                        Margin="0,0,15,0">
+                                    <TextBlock Text="Оценка"
+                               Foreground="White"
+                               FontSize="24"
+                               HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding rating}"
+                               d:Text="7"
+                               Visibility="{Binding DataContext.gameState,
+                                            RelativeSource={RelativeSource AncestorType={x:Type UserControl}},
+                                            Converter={StaticResource enumGameStateConverter}}"
+                               Foreground="LightGreen"
+                               FontSize="24"
+                               Margin="0,10,0,0"
+                               HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <!-- описание -->
+                            <TextBlock Grid.Row="1"
+                                   TextWrapping="Wrap"
+                                   Foreground="White"
+                                   FontSize="24"
+                                   Margin="0,25,0,0"
+                                   Text="{Binding description}"
+                                   d:Text="Незадачливому курьеру поручено доставить посылку в отдалённую больницу. Там парень оказывается в эпицентре вспышки неизвестного вируса и теперь вынужден сражаться с ордами мутировавших существ."/>
+
+                        </Grid>
+
+                    </Grid>
+                </Border>
+
+                <!-- блок оценок -->
+                <Grid Grid.Row="1"
+                  Grid.Column="0"
+                  Margin="0,50,0,0">
+                    <StackPanel>
+                        <Border CornerRadius="10"
+                        Background="#22201E"
+                        Padding="25"
+                        HorizontalAlignment="Center">
+                            <ListView d:ItemsSource="{d:SampleData ItemCount=3}"
+                              ItemsSource="{Binding ratingButtons}"
+                              Background="Transparent"
+                              BorderThickness="0"
+                              PreviewMouseRightButtonDown="ListView_PreviewMouseRightButtonDown">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Style="{StaticResource button_transparent}"
+                                        Command="{Binding DataContext.clickOnRatingCommand,
+                                        RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                        CommandParameter="{Binding number}"
+                                        IsHitTestVisible="{Binding canClick}">
+                                            <TextBlock Text="{Binding number}"
+                                               Foreground="{Binding color}"
+                                               d:Text="1" 
+                                               d:Foreground="White"
+                                               FontSize="32"
+                                               Margin="15,0,15,0"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Border>
+                        <TextBlock Text="{Binding currentAttemptsLeft, StringFormat=Попыток осталось: {0}}"
+                           d:Text="Попыток осталось: 3"
+                           Foreground="White"
+                           Margin="0,15,0,0"
+                           FontSize="24"
+                           HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+
+            <Grid Grid.Row="1"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Center"
+                  Margin="0,0,50,0"
+                  Visibility="{Binding gameState, Converter={StaticResource enumGameStateConverter}}">
+                  <Button Style="{StaticResource button_transparent}"
+                          Command="{Binding goToNextMovieCommand}">
+                    <Border 
+                        CornerRadius="50"
+                        Padding="25"
+                        Background="#22201E">
+                        <Path Data="{StaticResource iconGo}"
+                          Stretch="Uniform"
+                          Width="48"
+                          Height="48">
+                            <Path.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#FF5500" Offset="0.0"/>
+                                    <GradientStop Color="#FFF600" Offset="1.0"/>
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                    </Border>
+                </Button>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>

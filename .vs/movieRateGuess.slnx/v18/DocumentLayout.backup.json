@@ -1,0 +1,148 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|e:\\\u0431\u0435\u0431\u0440\u0430 2\\movierateguess\\resources\\data\\apikey.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:resources\\data\\apikey.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\utilities\\managers\\apimanager\\apimanagerabstract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:utilities\\managers\\apimanager\\apimanagerabstract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\views\\v_game.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:views\\v_game.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\views\\v_results.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:views\\v_results.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewmodel\\vm_game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:viewmodel\\vm_game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewmodel\\vm_results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:viewmodel\\vm_results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\models\\m_game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:models\\m_game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewmodel\\vm_navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57A01BB7-4033-45DE-BFB4-566FFC851C74}|movieRateGuess.csproj|solutionrelative:viewmodel\\vm_navigation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "apiKey.txt",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\resources\\data\\apiKey.txt",
+              "RelativeDocumentMoniker": "resources\\data\\apiKey.txt",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\resources\\data\\apiKey.txt",
+              "RelativeToolTip": "resources\\data\\apiKey.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-11-16T17:14:08.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "apiManagerAbstract.cs",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\utilities\\managers\\apiManager\\apiManagerAbstract.cs",
+              "RelativeDocumentMoniker": "utilities\\managers\\apiManager\\apiManagerAbstract.cs",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\utilities\\managers\\apiManager\\apiManagerAbstract.cs",
+              "RelativeToolTip": "utilities\\managers\\apiManager\\apiManagerAbstract.cs",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAmwIAAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T11:00:49.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "vm_navigation.cs",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewModel\\vm_navigation.cs",
+              "RelativeDocumentMoniker": "viewModel\\vm_navigation.cs",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewModel\\vm_navigation.cs",
+              "RelativeToolTip": "viewModel\\vm_navigation.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAWwCAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-15T20:20:46.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "v_results.xaml",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\views\\v_results.xaml",
+              "RelativeDocumentMoniker": "views\\v_results.xaml",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\views\\v_results.xaml",
+              "RelativeToolTip": "views\\v_results.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-15T20:10:04.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "vm_results.cs",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewModel\\vm_results.cs",
+              "RelativeDocumentMoniker": "viewModel\\vm_results.cs",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewModel\\vm_results.cs",
+              "RelativeToolTip": "viewModel\\vm_results.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDsAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-15T20:27:57.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "v_game.xaml",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\views\\v_game.xaml",
+              "RelativeDocumentMoniker": "views\\v_game.xaml",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\views\\v_game.xaml",
+              "RelativeToolTip": "views\\v_game.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-15T19:39:59.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "vm_game.cs",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewModel\\vm_game.cs",
+              "RelativeDocumentMoniker": "viewModel\\vm_game.cs",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\viewModel\\vm_game.cs",
+              "RelativeToolTip": "viewModel\\vm_game.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAQwLoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-15T19:33:02.978Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "m_game.cs",
+              "DocumentMoniker": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\models\\m_game.cs",
+              "RelativeDocumentMoniker": "models\\m_game.cs",
+              "ToolTip": "E:\\\u0431\u0435\u0431\u0440\u0430 2\\movieRateGuess\\models\\m_game.cs",
+              "RelativeToolTip": "models\\m_game.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-15T19:38:07.876Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

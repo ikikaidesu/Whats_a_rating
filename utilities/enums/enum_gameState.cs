@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace movieRateGuess.utilities.enums
+{
+    public enum enum_gameState
+    {
+        playing,
+        defeat,
+        win
+    }
+}
