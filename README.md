@@ -6,6 +6,7 @@
     <img src="https://img.shields.io/badge/CSharp-7.3-blueviolet" alt="Csharp version">
     <img src="https://img.shields.io/badge/.NET-4.8-blueviolet" alt=".Net version">
     <img src="https://img.shields.io/badge/api-2.2.2-blueviolet" alt=".Net version">
+    <img src="https://img.shields.io/badge/db-sqlite-blueviolet" alt=".Net version">
 
 </p>
 
@@ -17,11 +18,13 @@
 
 What's a Rating! is a simple WPF-based game where the goal is to guess a movie's rating. The game offers two modes: a popular movies mode, where you guess the ratings of well-known films, and a friend mode, where you try to guess how your friend rated a particular movie.
 
-This project relies on the <a href="https://kinopoiskapiunofficial.tech/">API</a>. It is completely free to use, and I am very grateful to its creator, as this project would not have been possible without their work.
+This project relies on the <a href="https://kinopoiskapiunofficial.tech/">API</a>. It is completely free to use, and I am very grateful to its creator, as this project would not have been possible without their work. In addition to the API, the project uses SQLite to cache data. Whenever movie data is requested, the manager first checks whether it already exists in the database. If the data is found, it is retrieved directly from SQLite. Otherwise, the manager fetches it from the API, saves it to the database, and then retrieves it from there. This helps reduce unnecessary API requests and makes subsequent data retrieval faster.
 
 To use the application, you need to obtain an API key from the <a href="API_WEBSITE_URL">API website</a> and paste it into the <code>resources/data/apiKey.txt</code> file.
 Due to the API's daily limit of 500 requests, I left a code snippet in <code>utilities\managers\apiManager\apiManagerAbstract.cs</code> that retrieves movies from only the first page (20 movies out of the total available).
 If you want the application to retrieve all available movies instead, remove this code snippet and uncomment the code containing the <code>while</code> loop.
+
+(idk why, but the gif doesn't show the popup with the gamemode description that appears when hovering over the question mark icon...)
 
 ## Instalation
 
